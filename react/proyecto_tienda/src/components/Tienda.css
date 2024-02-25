@@ -1,0 +1,55 @@
+/* Contenedor principal de la grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adapta esto según el tamaño mínimo deseado para las tarjetas */
+    gap: 1.5rem; /* Espacio entre tarjetas */
+    padding: 2rem; /* Espacio alrededor de la grid */
+  }
+  
+  /* Estilo general de las tarjetas */
+  .card {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border: 0; /* Sin borde para un look más limpio */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
+    overflow: hidden; /* Asegura que todo el contenido se mantenga dentro de los bordes redondeados */
+  }
+  
+  /* Imagen de la tarjeta */
+  .card-img-top {
+    width: 100%; /* Asegura que la imagen cubra el ancho */
+    height: 200px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  }
+  
+  /* Cuerpo de la tarjeta */
+  .card-body {
+    padding: 1rem; /* Espacio interior */
+  }
+  
+  /* Título de la tarjeta */
+  .card-title {
+    margin-bottom: 0.5rem; /* Espacio debajo del título */
+    font-size: 1.25rem; /* Tamaño de fuente del título */
+    font-weight: bold; /* Fuente en negrita para el título */
+  }
+  
+  /* Texto de la tarjeta */
+  .card-text {
+    margin-bottom: 0.5rem; /* Espacio entre los párrafos del texto */
+    font-size: 0.875rem; /* Tamaño de fuente del texto */
+  }
+  
+  /* Texto pequeño (para el estado) */
+  .text-muted {
+    font-size: 0.75rem; /* Tamaño de fuente más pequeño */
+    color: #6c7d70; /* Color gris para texto secundario */
+  }
+  
+  /* Efecto hover en las tarjetas */
+  .card:hover {
+    transform: translateY(-5px); /* Mueve la tarjeta hacia arriba */
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  }
+  

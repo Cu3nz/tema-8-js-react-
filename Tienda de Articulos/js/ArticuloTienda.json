@@ -1,0 +1,63 @@
+[
+    {
+      "Codigo de articulo": 1,
+      "Nombre": "Teclado Mecánico RGB",
+      "Cantidad": 10,
+      "Precio": 120.00
+    },
+    {
+      "Codigo de articulo": 2,
+      "Nombre": "Ratón Gamer Inalámbrico",
+      "Cantidad": 15,
+      "Precio": 60.00
+    },
+    {
+      "Codigo de articulo": 3,
+      "Nombre": "Auriculares Gaming 7.1",
+      "Cantidad": 8,
+      "Precio": 80.00
+    },
+    {
+      "Codigo de articulo": 4,
+      "Nombre": "Monitor Curvo 144Hz",
+      "Cantidad": 5,
+      "Precio": 200.00
+    },
+    {
+      "Codigo de articulo": 5,
+      "Nombre": "Silla Gamer Ergonómica",
+      "Cantidad": 4,
+      "Precio": 150.00
+    },
+    {
+      "Codigo de articulo": 6,
+      "Nombre": "Teclado Inalámbrico Compacto",
+      "Cantidad": 12,
+      "Precio": 90.00
+    },
+    {
+      "Codigo de articulo": 7,
+      "Nombre": "Mousepad XL con Iluminación",
+      "Cantidad": 20,
+      "Precio": 30.00
+    },
+    {
+      "Codigo de articulo": 8,
+      "Nombre": "Tarjeta Gráfica RTX 3080",
+      "Cantidad": 3,
+      "Precio": 700.00
+    },
+    {
+      "Codigo de articulo": 9,
+      "Nombre": "Consola Portátil de Juegos Retro",
+      "Cantidad": 10,
+      "Precio": 120.00
+    },
+    {
+      "Codigo de articulo": 10,
+      "Nombre": "Mando Inalámbrico para PC/Consola",
+      "Cantidad": 7,
+      "Precio": 50.00
+    }
+  ]
+  

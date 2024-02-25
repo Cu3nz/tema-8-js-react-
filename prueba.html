@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Implementar carrito de la compra usando memoria local  -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carro de la compra</title>
+    <style>
+        table,
+        td {
+            border: 1px black solid;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="mostrarDatos" type="button" onclick="consola()">Mostrar carro de la compra</button>
+
+    <table>
+        <tr>
+            <td>Camiseta</td>
+            <td><button onclick="añadirAlCarro(0)">Añadir</button></td>
+        </tr>
+        <tr>
+            <td>Pantalones</td>
+            <td><button onclick="añadirAlCarro(1)">Añadir</button></td>
+        </tr>
+        <tr>
+            <td>Zapatos</td>
+            <td><button onclick="añadirAlCarro(2)">Añadir</button></td>
+        </tr>
+    </table>
+
+    <script>
+        // Definición de los artículos disponibles en la tienda
+        var articulos = [
+            {
+                "nombre": "Camiseta",
+                "cantidad": 10,
+                "precio": 15.99
+            },
+            {
+                "nombre": "Pantalones",
+                "cantidad": 5,
+                "precio": 29.99
+            },
+            {
+                "nombre": "Zapatos",
+                "cantidad": 8,
+                "precio": 49.99
+            }
+        ];
+
+        // Función para añadir un artículo al carro de la compra
+        function añadirAlCarro(index) {
+            // Obtengo artículos almacenados
+            let carroDeCompra = localStorage.getItem("carroDeCompra");
+
+            // Si no hay artículos almacenados, inicializo el carro como un array vacío
+            if (!carroDeCompra) {
+                carroDeCompra = [];
+            } else {
+                // Si hay artículos almacenados, convierto el JSON a un array
+                carroDeCompra = JSON.parse(carroDeCompra);
+            }
+
+            // Añado el artículo seleccionado al carro 
+            carroDeCompra.push(articulos[index]);
+
+            // Almaceno el carro de la compra actualizado en localStorage
+            localStorage.setItem("carroDeCompra", JSON.stringify(carroDeCompra));
+
+            // Mensaje de articulo añadido
+            console.log(articulos[index].nombre + " añadido al carro de la compra.");
+        }
+
+        // Función para mostrar el carro de la compra en la consola
+        function consola() {
+            // Obtener el carro de la compra almacenado
+            let carroDeCompra = localStorage.getItem("carroDeCompra");
+
+            if (carroDeCompra) {
+                // Mostrar el carro de la compra en la consola
+                console.log("Carro de la compra:");
+                console.log(JSON.parse(carroDeCompra));
+            } else {
+                console.log("El carro de la compra está vacío.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

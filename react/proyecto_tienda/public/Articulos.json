@@ -1,0 +1,212 @@
+[
+    {
+      "Codigo de articulo": 1,
+      "Nombre": "Teclado Mecánico RGB",
+      "Cantidad": 10,
+      "Precio": 120.00,
+      "Imagen": "posts/86784fc8b55e43ea7053f08947debd96.jpg"
+    },
+    {
+      "Codigo de articulo": 2,
+      "Nombre": "Ratón Gamer Inalámbrico",
+      "Cantidad": 15,
+      "Precio": 60.00,
+      "Imagen": "posts/128d8cb2b0db24f0d741e2290b44dc21.jpg"
+    },
+    {
+      "Codigo de articulo": 3,
+      "Nombre": "Auriculares Gaming 7.1",
+      "Cantidad": 8,
+      "Precio": 80.00,
+      "Imagen": "posts/ff79a27af727a9cc967a1fa07f176064.jpg"
+    },
+    {
+      "Codigo de articulo": 4,
+      "Nombre": "Monitor Curvo 144Hz",
+      "Cantidad": 5,
+      "Precio": 200.00,
+      "Imagen": "posts/6437009f883f15c03af47c674d982a55.jpg"
+    },
+    {
+      "Codigo de articulo": 5,
+      "Nombre": "Silla Gamer Ergonómica",
+      "Cantidad": 4,
+      "Precio": 150.00,
+      "Imagen": "posts/0087fd1f706351355d0bb0289a9788ac.jpg"
+    },
+    {
+      "Codigo de articulo": 6,
+      "Nombre": "Teclado Inalámbrico Compacto",
+      "Cantidad": 12,
+      "Precio": 90.00,
+      "Imagen": "posts/ff1bdfe51d6e266a26689101f6910d2a.jpg"
+    },{
+        "Codigo de articulo": 7,
+        "Nombre": "Mousepad XL con Iluminación",
+        "Cantidad": 20,
+        "Precio": 30.00,
+        "Imagen": "posts/3c36ecbca079581aebd07a74db466d3d.jpg"
+      },
+      {
+        "Codigo de articulo": 8,
+        "Nombre": "Tarjeta Gráfica RTX 3080",
+        "Cantidad": 3,
+        "Precio": 700.00,
+        "Imagen": "posts/f63d8aea2c03afdbad5f6fbec649a062.jpg"
+      },
+      {
+        "Codigo de articulo": 9,
+        "Nombre": "Consola Portátil de Juegos Retro",
+        "Cantidad": 10,
+        "Precio": 120.00,
+        "Imagen": "posts/7a2c85932183cde406a96e66c252ed10.jpg"
+      },
+      {
+        "Codigo de articulo": 10,
+        "Nombre": "Mando Inalámbrico para PC/Consola",
+        "Cantidad": 7,
+        "Precio": 50.00,
+        "Imagen": "posts/f3ec31f4ee209e350e0196f3ba774be4.jpg"
+      },
+      {
+        "Codigo de articulo": 11,
+        "Nombre": "Webcam 4K con Micrófono",
+        "Cantidad": 9,
+        "Precio": 100.00,
+        "Imagen": "posts/2a41a24e641e0781d07f3887cff8020e.jpg"
+      },
+      {
+        "Codigo de articulo": 12,
+        "Nombre": "MicroSD 128GB Clase 10",
+        "Cantidad": 25,
+        "Precio": 20.00,
+        "Imagen": "posts/9f13edaf4cb884086d6068300c3d0211.jpg"
+      },
+      {
+        "Codigo de articulo": 13,
+        "Nombre": "Cargador Inalámbrico Qi",
+        "Cantidad": 18,
+        "Precio": 25.00,
+        "Imagen": "posts/5777dac9969dd64484ba4327290c7d41.jpg"
+      },
+      {
+        "Codigo de articulo": 14,
+        "Nombre": "Altavoces Bluetooth Portátiles",
+        "Cantidad": 10,
+        "Precio": 45.00,
+        "Imagen": "posts/8696021df1d5fce4105ef0a01326e5c1.jpg"
+      },
+      {
+        "Codigo de articulo": 15,
+        "Nombre": "Soporte Ajustable para Laptop",
+        "Cantidad": 12,
+        "Precio": 35.00,
+        "Imagen": "posts/06eeaa069562e0ac278d20a64f68451a.jpg"
+      },
+      {
+        "Codigo de articulo": 16,
+        "Nombre": "Disco Duro Externo 2TB",
+        "Cantidad": 8,
+        "Precio": 80.00,
+        "Imagen": "posts/572c4f44af35a14b9a2222161acb13d1.jpg"
+      },
+      {
+        "Codigo de articulo": 17,
+        "Nombre": "Router WiFi 6 Mesh",
+        "Cantidad": 5,
+        "Precio": 130.00,
+        "Imagen": "posts/2bb09254a345cf3388aa313c74473985.jpg"
+      },
+      {
+        "Codigo de articulo": 18,
+        "Nombre": "Lámpara LED con Cargador Inalámbrico",
+        "Cantidad": 15,
+        "Precio": 50.00,
+        "Imagen": "posts/2bde7f4c459f53f9e77098cca4d8ba4f.jpg"
+      },
+      {
+        "Codigo de articulo": 19,
+        "Nombre": "Brazo de Montaje para Monitor",
+        "Cantidad": 7,
+        "Precio": 60.00,
+        "Imagen": "posts/1ca37e3f1fcbe67d0b9f77d0eb6d7061.jpg"
+      },
+      {
+        "Codigo de articulo": 20,
+        "Nombre": "Teclado y Ratón Inalámbricos Ofimática",
+        "Cantidad": 20,
+        "Precio": 40.00,
+        "Imagen": "posts/a347dca6c6df06345b4fdaf477a5f0d3.jpg"
+      },{
+        "Codigo de articulo": 21,
+        "Nombre": "Memoria RAM DDR4 16GB",
+        "Cantidad": 14,
+        "Precio": 70.00,
+        "Imagen": "posts/a347dca6c6df06345b4fdaf477a5f0d3.jpg"
+      },
+      {
+        "Codigo de articulo": 22,
+        "Nombre": "Kit de Refrigeración Líquida para PC",
+        "Cantidad": 6,
+        "Precio": 120.00,
+        "Imagen": "posts/d35bafebdb9442da4463fe6d03a4a9e2.jpg"
+      },
+      {
+        "Codigo de articulo": 23,
+        "Nombre": "Placa Base ATX Intel",
+        "Cantidad": 4,
+        "Precio": 150.00,
+        "Imagen": "posts/f64c909285b2c0bbd33e2eef53619eea.jpg"
+      },
+      {
+        "Codigo de articulo": 24,
+        "Nombre": "Fuente de Alimentación 750W",
+        "Cantidad": 8,
+        "Precio": 95.00,
+        "Imagen": "posts/c496e225cc926c0494d5aa3c19ccac8a.jpg"
+      },
+      {
+        "Codigo de articulo": 25,
+        "Nombre": "Caja de PC con Ventana Transparente",
+        "Cantidad": 7,
+        "Precio": 110.00,
+        "Imagen": "posts/9c15bfd720cfdc510bfc8e97ba8495fa.jpg"
+      },
+      {
+        "Codigo de articulo": 26,
+        "Nombre": "SSD NVMe 1TB",
+        "Cantidad": 11,
+        "Precio": 100.00,
+        "Imagen": "posts/3ecf0b5665faa5d74a91170c7761d268.jpg"
+      },
+      {
+        "Codigo de articulo": 27,
+        "Nombre": "Monitor IPS 27' 4K",
+        "Cantidad": 5,
+        "Precio": 300.00,
+        "Imagen": "posts/9e9cdbd5898dd7093aa3943268929a66.jpg"
+      },
+      {
+        "Codigo de articulo": 28,
+        "Nombre": "Sistema de Altavoces 5.1",
+        "Cantidad": 6,
+        "Precio": 250.00,
+        "Imagen": "posts/6b812693c2241dfea68d3ae32539a4e7.jpg"
+      },
+      {
+        "Codigo de articulo": 29,
+        "Nombre": "Micrófono USB Condensador",
+        "Cantidad": 9,
+        "Precio": 80.00,
+        "Imagen": "posts/e68034f2364191f3b3e5488345760eca.jpg"
+      },
+      {
+        "Codigo de articulo": 30,
+        "Nombre": "Cámara de Seguridad WiFi",
+        "Cantidad": 12,
+        "Precio": 60.00,
+        "Imagen": "posts/1d8765e5180dbd3dd6536e3f652e0c29.jpg"
+      }    
+    
+  ]
+  
