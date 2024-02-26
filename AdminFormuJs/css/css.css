@@ -1,0 +1,22 @@
+
+.div_contenido{
+    background-color: grey;
+    border: 2px solid #000;
+    margin: 2vh;
+    padding: 2vh;
+    font-size: 1.5vw;
+}
+
+
+.imagen{
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+
+
+.imagen-ampliada{
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen en un 50% */
+    transition: transform 1s ease; /* Hace que la transformación sea suave */
+}
+
