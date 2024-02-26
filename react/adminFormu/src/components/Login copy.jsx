@@ -1,51 +1,45 @@
 import React, { useState } from 'react';
 
-const Login = ({ alLogin }) => { // Añadimos una prop de callback para notificar al componente padre
-  // Estados para manejar el correo electrónico, contraseña y mensajes de error.
-  const [correoUsuario, setCorreoUsuario] = useState('');
-  const [contrasena, setContrasena] = useState('');
+const Login = () => {
+  const [mailuser, setMailUser] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    // Recuperamos o inicializamos los arreglos de usuarios administradores y normales desde localStorage.
+    // Inicializamos o recuperamos los arrays de usuarios admin y normales
     let arrayUsuariosAdmin = JSON.parse(localStorage.getItem('arrayUsuariosAdmin') || '[]');
     let arrayUsuariosNormales = JSON.parse(localStorage.getItem('arrayUsuariosNormales') || '[]');
 
-    // Comprobamos si el correo y la contraseña corresponden a un administrador.
-    if ((correoUsuario === 'admin@admin.com' || correoUsuario === 'admin@admin.es') && contrasena === 'admin') {
-      // Buscamos si el usuario ya existe en el arreglo de administradores.
-      const usuarioAdminExiste = arrayUsuariosAdmin.some(usuario => usuario.correoUsuario === correoUsuario);
+    if ((mailuser === 'admin@admin.com' || mailuser === 'admin@admin.es') && password === 'admin') {
+      // Verificamos si el usuario admin ya existe
+      const usuarioAdminExiste = arrayUsuariosAdmin.some(usuario => usuario.mailuser === mailuser);
       if (!usuarioAdminExiste) {
-        // Si no existe, lo añadimos.
-        arrayUsuariosAdmin.push({ correoUsuario });
+        arrayUsuariosAdmin.push({ mailuser });
         localStorage.setItem('arrayUsuariosAdmin', JSON.stringify(arrayUsuariosAdmin));
       }
-      localStorage.setItem('esAdmin', 'true'); // Marcamos al usuario como administrador en localStorage.
-      alLogin(true); // Notificamos al componente padre que el usuario es admin.
-      setError(''); // Limpiamos el mensaje de error.
+      localStorage.setItem('esAdmin', 'true');
+      setError('');
     } else {
-      // Para cualquier otro intento de login, asumimos que es un usuario normal.
-      const usuarioNormalExiste = arrayUsuariosNormales.some(usuario => usuario.correoUsuario === correoUsuario);
+      // Para usuarios normales, asumimos que cualquier otro intento de login es válido
+      const usuarioNormalExiste = arrayUsuariosNormales.some(usuario => usuario.mailuser === mailuser);
       if (!usuarioNormalExiste) {
-        // Si no existe, lo añadimos al arreglo de usuarios normales.
-        arrayUsuariosNormales.push({ correoUsuario });
+        arrayUsuariosNormales.push({ mailuser });
         localStorage.setItem('arrayUsuariosNormales', JSON.stringify(arrayUsuariosNormales));
       }
-      localStorage.setItem('esAdmin', 'false'); // Marcamos al usuario como no administrador.
-      alLogin(false); // Notificamos al componente padre que el usuario es normal.
-      setError(''); // Limpiamos el mensaje de error.
+      localStorage.setItem('esAdmin', 'false');
+      setError('');
     }
   };
 
-  // Función para ver el contenido actual de localStorage. Útil para depuración.
   const verLocalStorage = () => {
-    console.log(localStorage);
-  };
 
-  // Función para limpiar todo el contenido de localStorage.
-  const limpiarLocalStorage = () => {
-    localStorage.clear();
+    console.log(localStorage);
+
+  }
+const limpiarLocalStorage = () => {
+    localStorage.clear(); // Esto borrará todo el localStorage
     console.log('localStorage limpiado');
+    // Aquí podrías añadir cualquier otra lógica que necesites después de limpiar el localStorage
   };
 
   return (
@@ -58,8 +52,8 @@ const Login = ({ alLogin }) => { // Añadimos una prop de callback para notifica
           type="text"
           className="form-control"
           id="email"
-          value={correoUsuario}
-          onChange={(e) => setCorreoUsuario(e.target.value)}
+          value={mailuser}
+          onChange={(e) => setMailUser(e.target.value)}
         />
       </div>
       <div className="mb-3">
@@ -68,12 +62,12 @@ const Login = ({ alLogin }) => { // Añadimos una prop de callback para notifica
           type="password"
           className="form-control"
           id="password"
-          value={contrasena}
-          onChange={(e) => setContrasena(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <button className="btn btn-primary" onClick={handleLogin}>Iniciar Sesión</button>
-      <button className="btn ms-2 btn-primary" onClick={verLocalStorage}>Ver LocalStorage</button>
+      <button className="btn ms-2 btn-primary" onClick={verLocalStorage}>ver LocalStorage</button>
       <button className="btn ms-2 btn-primary" onClick={limpiarLocalStorage}>Borrar LocalStorage</button>
     </div>
   );

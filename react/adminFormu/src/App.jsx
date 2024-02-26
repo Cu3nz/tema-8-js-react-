@@ -1,69 +1,62 @@
-// Importaciones necesarias para usar React, useState, React Router y estilos CSS
 import React, { useState } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css"; // Importa los estilos de Bootstrap
-import "./App.css"; // Importa los estilos CSS personalizados
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Articulos from "./components/Articulos.jsx"; // Importa el componente de Artículos
-import Login from "./components/Login.jsx"; // Importa el componente de Login
+import Articulos from "./components/Articulos.jsx";
+import Login from "./components/Login.jsx";
 
 function App() {
-  // Estado para manejar el termino de busqueda del formulario
   const [buscarArticulo, setBuscarArticulo] = useState("");
+  const [correoUsuario, setCorreoUsuario] = useState(""); // Asegúrate de añadir este estado
+  const [mostrarContenido, setMostrarContenido] = useState('bienvenida');
 
-  // Funcion para manejar el envío del formulario de búsqueda
-  const ArticuloABuscar = (e) => {
-    e.preventDefault(); //* Previene el comportamiento por defecto del formulario (recargar la página)
-
+  const manejarInicioSesion = (esAdmin, correo) => {
+    setCorreoUsuario(correo);
+    setMostrarContenido(esAdmin ? 'admin' : 'articulos');
   };
 
   return (
-    
     <Router>
-      {/* Título de la cabecera de la página */}
       <h1 className='text-center p-5 bg-dark text-white'>CABECERA</h1>
 
-      {/* Barra de navegacion para el formulario de búsqueda */}
-      <nav className="navbar bg-body-tertiary">
+      <nav className="navbar bg-body-tertiary sticky-top">
         <div className="container-fluid d-flex justify-content-center">
-          {/* //? Formulario para buscar articulos, utiliza la funcion "ArticuloABuscar" al enviar el formulario */}
-          <form className="d-flex" role="search" onSubmit={ArticuloABuscar}>
+          <form className="d-flex " role="search" onSubmit={(e) => e.preventDefault()}>
             <input 
               className="form-control me-2" 
               type="search" 
               placeholder="Introduce el título" 
               aria-label="Search" 
               value={buscarArticulo}
-              onChange={(e) => setBuscarArticulo(e.target.value)} // Actualiza el estado con el valor del input
+              onChange={(e) => setBuscarArticulo(e.target.value)}
             />
-            {/* Botón para enviar el formulario de búsqueda */}
             <button className="btn btn-outline-success" type="submit">Buscar</button>
           </form>
         </div>
       </nav>
-      {/* Contenedor principal para los componentes de Login y Artículos */}
+
       <div className="container-fluid">
         <div className="row">
-          {/* Columna para el componente de Login */}
-          <div className="col-md-6 bg-secondary">
+          {/* Ajusta las clases aquí para responsividad */}
+          <div className="col-12 col-md-6 bg-secondary">
             <h2 className="text-center text-white">INICIAR SESIÓN</h2>
-            <Login />
+            <Login alLogin={manejarInicioSesion} />
           </div>
-          {/* Columna para el componente de Artículos */}
-          <div className="col-md-6 bg-secondary" id="contenedor_principal">
-            <h2 className="text-center text-white">ARTÍCULOS</h2>
-            <Articulos terminoBusqueda={buscarArticulo} />
-            
+          {/* Ajusta las clases aquí para responsividad */}
+          <div className="col-12 col-md-6 bg-secondary" id="contenedor_principal">
+            {mostrarContenido === 'bienvenida' && <h2 className='text-center'>Bienvenido a SergiShop</h2>}
+            {mostrarContenido === 'admin' && <h2 className='text-center'>Has iniciado sesión como administrador: {correoUsuario}</h2>}
+            {mostrarContenido === 'articulos' && <><h2 className='text-center'>ARTÍCULOS</h2><Articulos terminoBusqueda={buscarArticulo} /></>}
           </div>
         </div>
       </div>
 
-      {/* Rutas de React Router para navegar entre diferentes componentes */}
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} /> {/* Ruta para el componente de Login */}
+        <Route path="/" element={<Login alLogin={manejarInicioSesion} />} />
+        <Route path="/login" element={<Login alLogin={manejarInicioSesion} />} />
       </Routes>
     </Router>
   );
 }
 
-export default App; // Exporta el componente App para ser usado en otros lugares de la aplicación
+export default App;
