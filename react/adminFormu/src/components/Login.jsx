@@ -1,61 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+// Este componente maneja el proceso de inicio de sesión para usuarios y administradores.
 const Login = ({ alLogin }) => {
-  // Estados para correo electrónico, contraseña y mensaje de error.
+  // Estados para manejar el correo electrónico y la contraseña del usuario, además de un mensaje de error.
   const [correoUsuario, setCorreoUsuario] = useState('');
   const [contrasena, setContrasena] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = () => {
-    //* Recuperamos los arreglos de usuarios admin y normales desde localStorage, o los inicializamos vacíos.
+  // Define un usuario administrador por defecto.
+  const usuarioAdminPorDefecto = {
+    correo: 'admin@admin.com',
+    contraseña: 'admin'
+  };
 
-    let arrayUsuariosAdmin = JSON.parse(localStorage.getItem('arrayUsuariosAdmin') || '[]');
-    let arrayUsuariosNormales = JSON.parse(localStorage.getItem('arrayUsuariosNormales') || '[]');
+  // Define un usuario normal por defecto.
+  const usuarioNormalPorDefecto = {
+    correo: 'sergio@gmail.com',
+    contraseña: 'sergio'
+  };
 
-
-    //? Verificamos si el usuario es un administrador basado en el correo y la contraseña.
-    if ((correoUsuario === 'admin@admin.com' || correoUsuario === 'admin@admin.es') && contrasena === 'admin') {
-
-      // Si el usuario es admin, verificamos si ya existe en el array de administradores.
-      const usuarioAdminExiste = arrayUsuariosAdmin.some(usuario => usuario.correoUsuario === correoUsuario);
-
-      if (!usuarioAdminExiste) {  // Si no existe, lo añadimos al array y actualizamos localStorage.
-       
-        arrayUsuariosAdmin.push({ correoUsuario });
-        localStorage.setItem('arrayUsuariosAdmin', JSON.stringify(arrayUsuariosAdmin));
-      }
-      localStorage.setItem('esAdmin', 'true'); //? Marcamos al usuario como administrador en localStorage.
-      alLogin(true , correoUsuario); // Notificamos al componente App que el usuario es administrador y el correo con el que se ha iniciado sesion.
-
-    } else { // Si no es un administrador, asumimos que es un usuario normal y procedemos de manera similar.
-      
-      const usuarioNormalExiste = arrayUsuariosNormales.some(usuario => usuario.correoUsuario === correoUsuario);
-
-      if (!usuarioNormalExiste) { // Si no existe el usuario normal, lo añadimos al array
-        arrayUsuariosNormales.push({ correoUsuario });
-        localStorage.setItem('arrayUsuariosNormales', JSON.stringify(arrayUsuariosNormales));
-      }
-      localStorage.setItem('esAdmin', 'false'); // Marcamos al usuario como no administrador.
-      alLogin(false , correoUsuario); // Notificamos al componente App que el usuario es normal.
+  // useEffect para inicializar los usuarios por defecto en localStorage si no existen.
+  useEffect(() => {
+    if (!localStorage.getItem('arrayUsuariosAdmin')) {
+      localStorage.setItem('arrayUsuariosAdmin', JSON.stringify([usuarioAdminPorDefecto]));
     }
-    setError(''); // Limpiamos el mensaje de error si es necesario.
+    if (!localStorage.getItem('arrayUsuariosNormales')) {
+      localStorage.setItem('arrayUsuariosNormales', JSON.stringify([usuarioNormalPorDefecto]));
+    }
+  }, []);
+
+  // Maneja el evento de clic en el botón de inicio de sesión.
+  const handleLogin = () => {
+    // Verifica que los campos no estén vacíos.
+    if (!correoUsuario || !contrasena) {
+      setError('No puedes dejar campos vacíos.');
+      return;
+    }
+
+    // Recupera los usuarios administradores y normales del localStorage.
+    let arrayUsuariosAdmin = JSON.parse(localStorage.getItem('arrayUsuariosAdmin'));
+    let arrayUsuariosNormales = JSON.parse(localStorage.getItem('arrayUsuariosNormales'));
+
+    // Verifica si el usuario es un administrador.
+    const esAdmin = arrayUsuariosAdmin.some(usuario => usuario.correo === correoUsuario && usuario.contraseña === contrasena);
+
+    // Verifica si el usuario es un usuario normal.
+    const esUsuarioNormal = arrayUsuariosNormales.some(usuario => usuario.correo === correoUsuario && usuario.contraseña === contrasena);
+
+    // Si el usuario es administrador, establece la sesión como administrador y llama al callback.
+    if (esAdmin) {
+      localStorage.setItem('esAdmin', 'true');
+      alLogin(true, correoUsuario);
+      setError('');
+    // Si el usuario es un usuario normal, establece la sesión como no administrador y llama al callback.
+    } else if (esUsuarioNormal) {
+      localStorage.setItem('esAdmin', 'false');
+      alLogin(false, correoUsuario);
+      setError('');
+    } else {
+      // Si no es administrador ni usuario normal, muestra un mensaje de error.
+      setError('No eres un administrador ni un usuario autorizado para entrar aquí.');
+    }
   };
 
-  // Funcion para visualizar el contenido de localStorage (util para depuracion).
+  // Función para visualizar el contenido de localStorage (útil para depuración).
   const verLocalStorage = () => {
-    console.log(localStorage);
+    console.log('LocalStorage:', localStorage);
   };
 
-  // Funcion para limpiar todo el contenido de localStorage.
+  // Función para limpiar todo el contenido de localStorage.
   const limpiarLocalStorage = () => {
     localStorage.clear();
-    console.log('localStorage limpiado');
+    console.log('LocalStorage limpiado');
   };
 
+  // Renderiza el formulario de inicio de sesión y los botones para interactuar con localStorage.
   return (
     <div>
       <h2>Iniciar Sesión</h2>
-      {error && <div style={{color: 'red'}}>{error}</div>}
+      {error && <div style={{ color: 'red' }}>{error}</div>}
       <div className="mb-3">
         <label htmlFor="email" className="form-label">Correo Electrónico</label>
         <input
@@ -77,8 +100,8 @@ const Login = ({ alLogin }) => {
         />
       </div>
       <button className="btn btn-primary" onClick={handleLogin}>Iniciar Sesión</button>
-      <button className="btn ms-2 btn-primary" onClick={verLocalStorage}>Ver LocalStorage</button>
-      <button className="btn ms-2 btn-primary mt-2" onClick={limpiarLocalStorage}>Borrar LocalStorage</button>
+      <button className="btn ms-2 btn-secondary" onClick={verLocalStorage}>Ver LocalStorage</button>
+      <button className="btn ms-2 btn-danger mt-2" onClick={limpiarLocalStorage}>Borrar LocalStorage</button>
     </div>
   );
 };
