@@ -78,7 +78,7 @@ const Login = ({ alLogin }) => {
       </div>
       <button className="btn btn-primary" onClick={handleLogin}>Iniciar Sesión</button>
       <button className="btn ms-2 btn-primary" onClick={verLocalStorage}>Ver LocalStorage</button>
-      <button className="btn ms-2 btn-primary" onClick={limpiarLocalStorage}>Borrar LocalStorage</button>
+      <button className="btn ms-2 btn-primary mt-2" onClick={limpiarLocalStorage}>Borrar LocalStorage</button>
     </div>
   );
 };

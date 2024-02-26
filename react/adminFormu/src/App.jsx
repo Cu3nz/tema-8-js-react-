@@ -19,21 +19,24 @@ function App() {
     <Router>
       <h1 className='text-center p-5 bg-dark text-white'>CABECERA</h1>
 
-      <nav className="navbar bg-body-tertiary sticky-top">
-        <div className="container-fluid d-flex justify-content-center">
-          <form className="d-flex " role="search" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              className="form-control me-2" 
-              type="search" 
-              placeholder="Introduce el título" 
-              aria-label="Search" 
-              value={buscarArticulo}
-              onChange={(e) => setBuscarArticulo(e.target.value)}
-            />
-            <button className="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
-        </div>
-      </nav>
+      {/* //todo Mostrar solo el search cuando inicie sesion un usuario normal, basicamente el que ve los articulos */}
+      {mostrarContenido === 'articulos' && (
+        <nav className="navbar bg-body-tertiary sticky-top">
+          <div className="container-fluid d-flex justify-content-center">
+            <form className="d-flex " role="search" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                className="form-control me-2" 
+                type="search" 
+                placeholder="Introduce el título" 
+                aria-label="Search" 
+                value={buscarArticulo}
+                onChange={(e) => setBuscarArticulo(e.target.value)}
+              />
+              <button className="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+          </div>
+        </nav>
+      )}
 
       <div className="container-fluid">
         <div className="row">
@@ -52,7 +55,7 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/" element={<Login alLogin={manejarInicioSesion} />} />
+        {/* <Route path="/" element={<Login alLogin={manejarInicioSesion} />} /> */}
         <Route path="/login" element={<Login alLogin={manejarInicioSesion} />} />
       </Routes>
     </Router>
